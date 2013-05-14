@@ -9,7 +9,9 @@
     "name": "Lev Ozeryansky"
   },
   "dependencies": {
-    "couchdb": "v0.3.8"
+    "couchdb": "v0.3.8",
+    "express": "v3.2.4",
+    "async"  : "v0.2.8"
   },
   "devDependencies": {
     
