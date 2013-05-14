@@ -2,7 +2,8 @@
   "name": "ozlevka-24meexam",
   "version": "0.0.1",
   "directories": {
-    "config": "./config"
+    "config": "./config",
+    "controllers": "./controllers"
   },
   "main": "./server.js",
   "author": {
@@ -25,5 +26,8 @@
   "description": "Ozeryansky Lev for 24me exam",
   "dist": {
     
-  }
+  },
+  "files":[
+     "./controllers/userController.js"
+  ]
 }
