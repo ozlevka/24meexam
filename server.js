@@ -8,13 +8,13 @@ app.configure(function()
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.engine('.html', require('ejs').__express);
-	app.set('views', __dirname + '/public');
+	app.set('views', __dirname + '/views');
 	app.set('view engine', 'html');
 	app.use(express.static(__dirname + '/public'));
 });
 
 // All requests
-app.get('/',function(res,req)
+app.get('/',function(req,res)
 {
 	res.render('index',{});
 });
@@ -34,7 +34,7 @@ app.all('/user',function(req,res,next)
 //parser data and view requests
 app.all('/parser',function(req,res,next)
 {
-	
+
 });
 
 app.listen(8001);
