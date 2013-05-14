@@ -1,3 +1,27 @@
 {
-	
+  "name": "ozlevka-24meexam",
+  "version": "0.0.1",
+  "directories": {
+    "config": "./config"
+  },
+  "main": "./server.js",
+  "author": {
+    "name": "Lev Ozeryansky"
+  },
+  "dependencies": {
+    "couchdb": "v0.3.8"
+  },
+  "devDependencies": {
+    
+  },
+  "scripts": {
+    
+  },
+  "readme": "",
+  "readmeFilename": "README.md",
+  "_id": "ozlevka-24meexam@0.0.1",
+  "description": "Ozeryansky Lev for 24me exam",
+  "dist": {
+    
+  }
 }
