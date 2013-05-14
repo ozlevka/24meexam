@@ -8,11 +8,33 @@ app.configure(function()
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.engine('.html', require('ejs').__express);
-	app.set('views', __dirname + '/views');
+	app.set('views', __dirname + '/public');
 	app.set('view engine', 'html');
 	app.use(express.static(__dirname + '/public'));
-	app.use(user.controller);
 });
 
+// All requests
+app.get('/',function(res,req)
+{
+	res.render('index',{});
+});
+
+//Redirect to read objectives
+app.get('/objectives', function(req,res)
+{
+	res.render('objectives',{});
+});
+
+//user data and view requests
+app.all('/user',function(req,res,next)
+{
+	user.controller(req,res,next);
+});
+
+//parser data and view requests
+app.all('/parser',function(req,res,next)
+{
+	
+});
 
 app.listen(8001);
