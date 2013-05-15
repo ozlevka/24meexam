@@ -13,7 +13,7 @@ app.configure(function()
 	app.use(express.static(__dirname + '/public'));
 });
 
-// All requests
+//----------------------static data------------------------------------
 app.get('/',function(req,res)
 {
 	res.render('index',{});
@@ -24,12 +24,20 @@ app.get('/objectives', function(req,res)
 {
 	res.render('objectives',{});
 });
+//--------------------------------end static data-------------------------------
 
-//user data and view requests
+//-----------------------------------------user handler routing---------------------
 app.all('/user',function(req,res,next)
 {
-	user.controller(req,res,next);
+	
 });
+
+app.post('/user/register',function(req,res,next)
+{
+	user.register(req, res, next);
+});
+
+//--------------end user handler routing----------------
 
 //parser data and view requests
 app.all('/parser',function(req,res,next)

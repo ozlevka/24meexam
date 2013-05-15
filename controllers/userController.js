@@ -7,3 +7,8 @@ exports.controller = function(req,res,next)
 {
 
 };
+
+exports.register = function(req,res,next)
+{
+
+};

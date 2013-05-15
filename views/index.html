@@ -10,7 +10,7 @@
 		<script language="javascript" src="/js/site.js"></script>
 	</head>
 	<body>
-		<div class="cnt" ng-controller="IndexContentResolver">
+		<div class="cnt">
 			<div class="header">
 				<div class="head1">
 					<h1><a href="#">Lev's for 24me exam</a></h1>
@@ -21,39 +21,45 @@
 					<p>App rendering include using express package and angular.js. Database couchdb</p>	
 				</div>
 			</div>
-			<div class="main">
+			<div class="main" ng-controller="UserController">
 				<div class="content">
 					<div class="post" style="height:350px;">
-						<table ng-show="showLogin">
-							<tr>
-								<td>User:</td>
-								<td><input></td>	
-							</tr>	
-							<tr>
-								<td>Password</td>
-								<td><input type="password"></td>
-							</tr>
-							<tr>
-								<td><input type="button" value="Send" /></td>
-							</tr>
-						</table>
-						<table ng-show="showRegister">
-							<tr>
-								<td>User:</td>
-								<td><input></td>	
-							</tr>	
-							<tr>
-								<td>Password</td>
-								<td><input type="password"></td>
-							</tr>
-							<tr>
-								<td>Repeat Password</td>
-								<td><input type="password"></td>
-							</tr>
-							<tr>
-								<td><input type="button" value="Send" /></td>
-							</tr>
-						</table>
+						<form name="loginForm">
+							<table ng-show="showLogin" ng-submit="loginSubmit()">
+								<tr>
+									<td>User:</td>
+									<td><input></td>	
+								</tr>	
+								<tr>
+									<td>Password</td>
+									<td><input type="password"></td>
+								</tr>
+								<tr>
+									<td><submit value="Send" /></td>
+								</tr>
+							</table>
+						</form>
+						<form name="registerForm">
+							<table ng-show="showRegister">
+								<tr>
+									<td>User:</td>
+									<td><input></td>	
+								</tr>	
+								<tr>
+									<td>Password</td>
+									<td><input type="password"></td>
+								</tr>
+								<tr>
+									<td>Repeat Password</td>
+									<td><input type="password"></td>
+								</tr>
+								<tr>
+									<td>
+										<input type="submit" value="Send"/>
+									</td>
+								</tr>
+							</table>
+						</form>
 					</div>
 				</div>
 				<div class="sidebar" style="height:350px;">
