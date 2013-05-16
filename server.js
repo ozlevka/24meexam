@@ -27,22 +27,11 @@ app.get('/objectives', function(req,res)
 //--------------------------------end static data-------------------------------
 
 //-----------------------------------------user handler routing---------------------
-app.all('/user',function(req,res,next)
-{
-	
-});
-
-app.post('/user/register',function(req,res,next)
-{
-	user.register(req, res, next);
-});
-
+app.post('/user/register',user.register);
+app.get('/user/:id',user.getUser);
 //--------------end user handler routing----------------
 
 //parser data and view requests
-app.all('/parser',function(req,res,next)
-{
 
-});
 
 app.listen(8001);
