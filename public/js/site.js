@@ -14,18 +14,18 @@ function UserController($scope,$http)
 		$scope.showLogin = false;
 		$scope.showRegister = true;
 	};
-
-	$scope.doRegister = function()
-	{
-		
-	}
 }
 
 
-function RegisterCtl($scope,$http)
+function ParserCntl($scope, $http)
 {
-	$scope.submit = function()
+	$scope.siteChange = function()
 	{
-		var a =  '';
+		$scope.sites = $scope.txtSites.split(';');
+	};
+
+	$scope.logout = function()
+	{
+		document.location.href = '/user/logout';
 	}
 }

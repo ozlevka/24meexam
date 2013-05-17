@@ -23,6 +23,7 @@ app.get('/objectives', function(req,res)
 
 //-----------------------------------------user handler routing---------------------
 app.get('/', user.main);
+app.get('/user/logout', user.logout);
 app.post('/user/register',user.register);
 app.get('/user/:id',user.getUser);
 app.post('/user/login', user.login);

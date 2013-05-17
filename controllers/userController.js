@@ -35,7 +35,7 @@ exports.register = function(req,res,next)
 			else
 			{
 				res.cookie('user', body.userName, {});
-				res.render('users',{user : doc.body});
+				res.redirect('/');
 			}
 		})
 	}
@@ -60,7 +60,7 @@ exports.login = function(req,res,next)
 		else if(doc.body.password == body.userPass)
 		{
 		 	res.cookie('user', body.userName, {});
-			res.render('users',{user : doc.body});
+			res.redirect('/');
 		}
 		else
 		{
@@ -72,14 +72,32 @@ exports.login = function(req,res,next)
 
 exports.main = function(req,res,next)
 {
-	if (req.cookie.user) 
+	if (req.cookies.user) 
 	{
+		var doc = userDb.doc(req.cookies.user);
+		doc.get(function(err, response)
+		{
+			if(err)
+			{
+				res.render('index',{error:err});
+			}
+			else
+			{
+				res.render('users', {user:response})
+			}
+		})
 
 	}
 	else
 	{
 		res.render('index', {error:null});
 	}
+}
+
+exports.logout = function(req,res,next)
+{
+	res.clearCookie('user');
+	res.redirect('/');
 }
 
 exports.getUser = function(req,res,next)

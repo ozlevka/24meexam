@@ -21,17 +21,30 @@
 					<p>App rendering include using express package and angular.js. Database couchdb</p>	
 				</div>
 			</div>
-			<div class="main">
+			<div class="main" ng-controller="ParserCntl">
 				<div class="content">
 					<div class="post" style="height:350px;">
-						
+						<div style="height:120px;">
+							<label>Write sites urls delimeted by ';'</label>
+							<input style="width:350px;" ng-model="txtSites" ng-change="siteChange()">
+							<div style="margin-top:10px;">
+								<ul>
+									<li ng-repeat="site in sites">{{site}}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div>
+
 					</div>
 				</div>
 				<div class="sidebar" style="height:350px;">
 					<div class="bloque1">
 					<h3>menu</h3>
 						<ul>
-							
+							<li><a href="#" >Parse</a></li>
+							<li><a href="#" ng-click="logout()">Log out</a></li>
+							<li><a href="/objectives">Exam objective</a></li>
 						</ul>
 					</div>
 				</div>
