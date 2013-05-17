@@ -19,6 +19,8 @@ function UserController($scope,$http)
 
 function ParserCntl($scope, $http)
 {
+	$scope.working = false;
+	$scope.items = [];
 	$scope.siteChange = function()
 	{
 		$scope.sites = $scope.txtSites.split(';');
@@ -27,5 +29,31 @@ function ParserCntl($scope, $http)
 	$scope.logout = function()
 	{
 		document.location.href = '/user/logout';
+	}
+
+	$scope.parse = function()
+	{
+		$scope.working = true;
+		$scope.items = [];
+
+		$http.post('/parse',$scope.sites).success(function(data)
+		{
+			$scope.items = data;
+			$scope.working = false;
+		}).error(function(err)
+		{
+			alert(err);
+		});		
+		// for(var i = 0; i < $scope.sites.length; i++)
+		// {
+		// 	$http.post('/parse',[$scope.sites[i]]).success(function(data)
+		// 	{
+		// 	 	$scope.items.concat(data);
+		// 	 	$scope.working = false;
+		// 	}).error(function(err)
+		// 	{
+		// 	 	alert(err);
+		// 	});
+		// }		
 	}
 }

@@ -7,9 +7,7 @@ userDb.info(function(err,response)
 	if (err && err.error == "not_found") 
 	{
 		userDb.create(function()
-		{
-
-		});
+		{});
 	};
 });
 
@@ -70,6 +68,11 @@ exports.login = function(req,res,next)
 	});
 }
 
+/**
+* ###User API
+* Check if user this is back client by checking cookie
+* If yes then users view rendering else index view rendering
+*/
 exports.main = function(req,res,next)
 {
 	if (req.cookies.user) 
@@ -98,19 +101,4 @@ exports.logout = function(req,res,next)
 {
 	res.clearCookie('user');
 	res.redirect('/');
-}
-
-exports.getUser = function(req,res,next)
-{
-	var doc = userDb.get(req.params.id);
-	doc.get(function(err,dbres){
-		if (err) 
-		{
-			res.send(200,'Db error ' + err);
-		}
-		else
-		{
-			res.send(200,doc.body);
-		}
-	})
 }

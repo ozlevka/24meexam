@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen">
 		<title>SimpleTheme.txt</title>
 		<script language="javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+		<script language="javascript" src=" http://code.angularjs.org/1.0.0rc10/angular-cookies-1.0.0rc10.js"></script>
 		<script language="javascript" src="/js/site.js"></script>
 	</head>
 	<body>
@@ -23,8 +24,8 @@
 			</div>
 			<div class="main" ng-controller="ParserCntl">
 				<div class="content">
-					<div class="post" style="height:350px;">
-						<div style="height:120px;">
+					<div class="post">
+						<div style="height:60px;">
 							<label>Write sites urls delimeted by ';'</label>
 							<input style="width:350px;" ng-model="txtSites" ng-change="siteChange()">
 							<div style="margin-top:10px;">
@@ -35,17 +36,22 @@
 						</div>
 					</div>
 					<div>
-
+						<ul>
+							<li ng-repeat="item in items">{{item}}</li>
+						</ul>
 					</div>
 				</div>
 				<div class="sidebar" style="height:350px;">
 					<div class="bloque1">
 					<h3>menu</h3>
 						<ul>
-							<li><a href="#" >Parse</a></li>
+							<li><a href="#" ng-click="parse()">Parse</a></li>
 							<li><a href="#" ng-click="logout()">Log out</a></li>
 							<li><a href="/objectives">Exam objective</a></li>
 						</ul>
+					</div>
+					<div ng-show="working" style="margin-left:65px;margin-top:-80px;">
+						<img src="/images/icon_ajax_loading.gif">	
 					</div>
 				</div>
 			</div>

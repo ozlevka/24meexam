@@ -1,5 +1,6 @@
 var express = require('express');
 var user = require('./controllers/userController.js');
+var parser = require('./controllers/parserController.js')
 
 var app = express();
 
@@ -7,6 +8,7 @@ app.configure(function()
 {
 	app.use(express.bodyParser());
 	app.use(express.cookieParser('24meexam'));
+	app.use(parser.jsonRoute)
 	app.engine('.html', require('ejs').__express);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'html');
@@ -25,11 +27,8 @@ app.get('/objectives', function(req,res)
 app.get('/', user.main);
 app.get('/user/logout', user.logout);
 app.post('/user/register',user.register);
-app.get('/user/:id',user.getUser);
 app.post('/user/login', user.login);
 //--------------end user handler routing----------------
-
-//parser data and view requests
 
 
 app.listen(8001);
