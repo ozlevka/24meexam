@@ -24,34 +24,34 @@
 			<div class="main" ng-controller="UserController">
 				<div class="content">
 					<div class="post" style="height:350px;">
-						<form name="loginForm">
-							<table ng-show="showLogin" ng-submit="loginSubmit()">
+						<form name="loginForm" action="/user/login" method="POST">
+							<table ng-show="showLogin">
 								<tr>
 									<td>User:</td>
-									<td><input></td>	
+									<td><input name="userName"></td>	
 								</tr>	
 								<tr>
 									<td>Password</td>
-									<td><input type="password"></td>
+									<td><input type="password" name="userPass"></td>
 								</tr>
 								<tr>
-									<td><submit value="Send" /></td>
+									<td><input type="submit" value="Send" /></td>
 								</tr>
 							</table>
 						</form>
-						<form name="registerForm">
+						<form name="registerForm" action="/user/register" method="POST">
 							<table ng-show="showRegister">
 								<tr>
 									<td>User:</td>
-									<td><input></td>	
+									<td><input name="userName"></td>	
 								</tr>	
 								<tr>
 									<td>Password</td>
-									<td><input type="password"></td>
+									<td><input type="password" name="userPass"></td>
 								</tr>
 								<tr>
 									<td>Repeat Password</td>
-									<td><input type="password"></td>
+									<td><input type="password" name="confirmPass"></td>
 								</tr>
 								<tr>
 									<td>
@@ -60,6 +60,9 @@
 								</tr>
 							</table>
 						</form>
+						<% if(error) {%>
+						     <span style="color:red"><%= error %></span>
+						<%}%> 
 					</div>
 				</div>
 				<div class="sidebar" style="height:350px;">

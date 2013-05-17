@@ -6,7 +6,7 @@ var app = express();
 app.configure(function()
 {
 	app.use(express.bodyParser());
-	app.use(express.cookieParser());
+	app.use(express.cookieParser('24meexam'));
 	app.engine('.html', require('ejs').__express);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'html');
@@ -14,11 +14,6 @@ app.configure(function()
 });
 
 //----------------------static data------------------------------------
-app.get('/',function(req,res)
-{
-	res.render('index',{});
-});
-
 //Redirect to read objectives
 app.get('/objectives', function(req,res)
 {
@@ -27,8 +22,10 @@ app.get('/objectives', function(req,res)
 //--------------------------------end static data-------------------------------
 
 //-----------------------------------------user handler routing---------------------
+app.get('/', user.main);
 app.post('/user/register',user.register);
 app.get('/user/:id',user.getUser);
+app.post('/user/login', user.login);
 //--------------end user handler routing----------------
 
 //parser data and view requests

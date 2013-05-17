@@ -15,11 +15,10 @@ function UserController($scope,$http)
 		$scope.showRegister = true;
 	};
 
-	$scope.loginSubmit = function()
+	$scope.doRegister = function()
 	{
-
-		return false;
-	};
+		
+	}
 }
 
 
