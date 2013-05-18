@@ -43,6 +43,7 @@ function ParserCntl($scope, $http)
 		}).error(function(err)
 		{
 			alert(err);
+			$scope.working = false;
 		});		
 		// for(var i = 0; i < $scope.sites.length; i++)
 		// {
